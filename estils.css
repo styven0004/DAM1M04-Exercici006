@@ -1,0 +1,133 @@
+body {
+    font-family: sans-serif;
+    background: #fdfdfd;
+    padding: 40px;
+    color: #222;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label, span {
+    font-weight: 600;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s; /* animació focus */
+}
+
+/* Focus */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 6px #0077ff66;
+    transform: scale(1.02);
+}
+
+/* Valid / invalid */
+input:required:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+/* Checkbox i radio — estil personalitzat */
+.check-group, .radio-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Oculta els inputs reals */
+.check-group input,
+.radio-group input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 6px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Checkbox marcat */
+.check-group input:checked {
+    background: #26a826;
+    border-color: #26a826;
+}
+.check-group input:checked::after {
+    content: "✔";
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: -2px;
+    left: 2px;
+}
+
+/* Radio circular */
+.radio-group input {
+    border-radius: 50%;
+}
+
+.radio-group input:checked {
+    background: #0068ff;
+    border-color: #0068ff;
+}
+
+.radio-group input:checked::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    background: white;
+}
+
+/*** Altres Inputs ***/
+
+/* Range */
+input[type="range"] {
+    accent-color: #ff6600;
+}
+
+/* Color */
+input[type="color"] {
+    padding: 2px;
+    height: 40px;
+}
+
+/* Botons */
+.botons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #0068ff;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #004ec7;
+}

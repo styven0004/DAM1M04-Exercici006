@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulari personalitzat</title>
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body>
+
+    <h1>Formulari de registre</h1>
+
+    <form>
+
+        <!-- Nom complet -->
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom"
+               pattern="^[A-Za-zÀ-ú]+(\s[A-Za-zÀ-ú]+)+$"
+               title="Escriu nom i cognoms (mínim 2 paraules)"
+               required>
+
+        <!-- Email -->
+        <label for="email">Correu electrònic</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Telèfon -->
+        <label for="telefon">Telèfon</label>
+        <input type="tel" id="telefon" name="telefon"
+               pattern="^[0-9]{9}$"
+               title="Introdueix un telèfon de 9 dígits">
+
+        <!-- Edat -->
+        <label for="edat">Edat</label>
+        <input type="number" id="edat" name="edat"
+               min="18" max="99" step="1">
+
+        <!-- Data de naixement -->
+        <label for="data">Data de naixement</label>
+        <input type="date" id="data" name="data">
+
+        <!-- Franja horària -->
+        <label for="hora">Franja horària preferida</label>
+        <input type="time" id="hora" name="hora">
+
+        <!-- Color preferit -->
+        <label for="color">Color preferit</label>
+        <input type="color" id="color" name="color">
+
+        <!-- Range -->
+        <label for="rang">Nivell satisfacció</label>
+        <input type="range" id="rang" name="rang" min="0" max="10">
+
+        <!-- Aficions (checkbox) -->
+        <span>Aficions</span>
+        <div class="check-group">
+            <label><input type="checkbox" name="hobby" value="esport">Esport</label>
+            <label><input type="checkbox" name="hobby" value="musica">Música</label>
+            <label><input type="checkbox" name="hobby" value="lectura">Lectura</label>
+        </div>
+
+        <!-- Nivell estudis (radio) -->
+        <span>Nivell d’estudis</span>
+        <div class="radio-group">
+            <label><input type="radio" name="estudis" value="eso">ESO</label>
+            <label><input type="radio" name="estudis" value="batx">Batxillerat</label>
+            <label><input type="radio" name="estudis" value="uni">Universitat</label>
+        </div>
+
+        <!-- País -->
+        <label for="pais">País</label>
+        <select id="pais" name="pais">
+            <option value="">-- Selecciona --</option>
+            <option value="es">Espanya</option>
+            <option value="fr">França</option>
+            <option value="it">Itàlia</option>
+            <option value="uk">Regne Unit</option>
+        </select>
+
+        <!-- Comentaris -->
+        <label for="comentaris">Comentaris</label>
+        <textarea id="comentaris" name="comentaris" rows="4"></textarea>
+
+        <!-- Botons -->
+        <div class="botons">
+            <button type="submit">Enviar</button>
+            <button type="reset">Esborrar</button>
+        </div>
+    </form>
+
+</body>
+</html>
