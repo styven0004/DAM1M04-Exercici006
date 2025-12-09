@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactivitat CSS</title>
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body id="pagina-interaccio">
+
+<header class="header-sticky">
+    <!-- Navbar desktop -->
+    <nav class="nav-desktop">
+        <a href="index.html">Formulari</a>
+        <a href="interaccio.html">Interactivitat</a>
+    </nav>
+
+
+
+    <!-- Menú mòbil -->
+    <nav class="nav-mobile">
+        <a href="index.html">Formulari</a>
+        <a href="interaccio.html">Interactivitat</a>
+    </nav>
+</header>
+
+<main class="contenidor">
+
+    <h1>Interacció amb CSS — Sense JavaScript</h1>
+
+    <!-- 2️⃣ TABS -->
+    <section class="tabs">
+        <h2>Pestanyes CSS</h2>
+
+        <!-- radio amagats -->
+        <input type="radio" name="tab" id="tab1" hidden checked>
+        <input type="radio" name="tab" id="tab2" hidden>
+        <input type="radio" name="tab" id="tab3" hidden>
+
+        <div class="tab-buttons">
+            <label for="tab1">Conceptes</label>
+            <label for="tab2">Avantatges</label>
+            <label for="tab3">Limitacions</label>
+        </div>
+
+        <div class="tab-content content-1">
+            <p>Les pestanyes amb CSS funcionen amb radio buttons + selectors avançats.</p>
+        </div>
+        <div class="tab-content content-2">
+            <p>No requereixen JavaScript i són ràpides de renderitzar.</p>
+        </div>
+        <div class="tab-content content-3">
+            <p>No serveixen per canvis en temps real o dades dinàmiques.</p>
+        </div>
+    </section>
+
+    <!-- 3️⃣ COMPONENT EXTRA — FLIP CARD -->
+    <section>
+        <h2>Flip Card amb checkbox</h2>
+
+        <label class="flip-container">
+            <input type="checkbox" id="card" hidden>
+            <div class="card">
+                <div class="front">
+                    👋 Clica per girar
+                </div>
+                <div class="back">
+                    🎉 Tot amb CSS!
+                </div>
+            </div>
+        </label>
+    </section>
+
+</main>
+
+</body>
+</html>
