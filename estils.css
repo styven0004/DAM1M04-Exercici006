@@ -1,172 +1,315 @@
-/* ───────────── RESET ───────────── */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ───────────── NAVBAR ───────────── */
-header {
-    background: #1e1e1e;
-    padding: 10px 20px;
+/* Reset bàsic */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 10px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    background: #333;
-    border-radius: 5px;
-}
-
-/* ───────────── PÀGINA ───────────── */
+/* Tipografia i colors globals */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f8fa;
+  color: #222;
+  min-height: 100vh;
+  line-height: 1.5;
 }
 
-.contenidor {
-    max-width: 700px;
-    margin: auto;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Navbar */
+nav {
+  display: flex;
+  gap: 1.5rem;
+  background: #222;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a:focus {
+  color: #ff9800;
 }
 
-h1 {
-    text-align: center;
+/* Layout principal */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* ───────────── FORM ───────────── */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+/* Formularis i inputs */
+form label,
+fieldset legend {
+  display: block;
+  margin-bottom: 0.4em;
+  font-weight: 500;
 }
-
-/* Inputs generals */
-input, textarea, select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    transition: .3s;      /* 1/5 transicions */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 0.5em;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fafbfc;
 }
-
-/* FOCUS */
 input:focus,
-textarea:focus,
-select:focus {
-    border-color: dodgerblue;
-    box-shadow: 0 0 6px #0077ff66;
-    transform: scale(1.02); /* 2/5 transicions */
+select:focus,
+textarea:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 2px #ffe0b2;
+  outline: none;
+}
+input:required:invalid {
+  border-color: #e57373;
+  background: #fff0f0;
+}
+input:required:valid {
+  border-color: #81c784;
+  background: #f0fff0;
 }
 
-/* VALIDACIÓ visual */
-input:invalid {
-    border-color: red;
+/* Checkbox i radio personalitzats */
+.checkbox-custom input[type="checkbox"],
+.radio-custom input[type="radio"] {
+  display: none;
+}
+.checkbox-custom .checkmark,
+.radio-custom .radiomark {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  background: #fff;
+  border: 2px solid #888;
+  border-radius: 0.3em;
+  position: relative;
+  transition: border-color 0.3s, background 0.3s;
+}
+.radio-custom .radiomark {
+  border-radius: 50%;
+}
+.checkbox-custom input[type="checkbox"]:checked + .checkmark {
+  background: #ff9800;
+  border-color: #ff9800;
+}
+.checkbox-custom .checkmark::after {
+  content: '';
+  display: block;
+  width: 0.5em;
+  height: 0.9em;
+  border: solid #fff;
+  border-width: 0 0.2em 0.2em 0;
+  transform: rotate(45deg) scale(0);
+  position: absolute;
+  left: 0.3em;
+  top: 0.1em;
+  transition: transform 0.2s;
+}
+.checkbox-custom input[type="checkbox"]:checked + .checkmark::after {
+  transform: rotate(45deg) scale(1);
+}
+.radio-custom input[type="radio"]:checked + .radiomark {
+  background: #ff9800;
+  border-color: #ff9800;
+}
+.radio-custom .radiomark::after {
+  content: '';
+  display: block;
+  width: 0.6em;
+  height: 0.6em;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.25em;
+  left: 0.25em;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.radio-custom input[type="radio"]:checked + .radiomark::after {
+  opacity: 1;
 }
 
-input:valid {
-    border-color: green;
+/* Botons */
+button,
+input[type="submit"],
+input[type="reset"] {
+  padding: 0.7em 1.5em;
+  border: none;
+  border-radius: 0.5em;
+  background: #ff9800;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-right: 0.5em;
+}
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background: #e65100;
 }
 
-/* ───────────── CHECKBOX + RADIO ───────────── */
-.subtitol { font-weight:600; }
-
-.check-group, .radio-group {
-    display: flex;
-    gap: 1.2rem;
+/* Menú toggle per a mòbil */
+.menu-toggle,
+.menu-icon {
+  display: none;
 }
-
-/* amagar natiu */
-.check-group input,
-.radio-group input {
-    appearance: none;
-    width: 18px;
-    height: 18px;
+@media (max-width: 700px) {
+  nav {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  main {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .menu-icon {
+    display: inline-block;
     cursor: pointer;
-    border: 2px solid #555;
-    border-radius: 4px;
+    width: 2em;
+    height: 2em;
     position: relative;
-    transition: .25s;       /* 3/5 transicions */
-}
-
-/* checkbox checked */
-.check-group input:checked {
-    background: #22aa22;
-    border-color: #22aa22;
-}
-
-.check-group input:checked::after {
-    content: "✔";
-    color: white;
-    font-size: 12px;
+    margin-bottom: 1em;
+  }
+  .menu-icon span {
+    display: block;
+    height: 0.3em;
+    background: #222;
+    margin: 0.4em 0;
+    border-radius: 0.2em;
+    transition: all 0.3s;
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     position: absolute;
-    top: -2px; left: 2px;
-}
-
-/* radio circular */
-.radio-group input {
-    border-radius: 50%;
-}
-
-.radio-group input:checked {
-    background: #0080ff;
-    border-color: #0080ff;
-}
-
-.radio-group input:checked::after {
-    content: "";
-    position: absolute;
-    width: 8px; height: 8px;
-    background: white;
-    top: 3px; left: 3px;
-    border-radius: 50%;
-}
-
-/* ───────────── ALTRES CONTROLS ───────────── */
-input[type="range"] { accent-color: orange; }
-input[type="color"] { height: 40px; }
-
-/* ───────────── BOTONS ───────────── */
-.botons {
+    top: 4em;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  #pagina-interaccio:has(#menu-toggle:checked) .menu {
     display: flex;
-    gap: 10px;
+    animation: fadeIn 0.4s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-1em);}
+    to { opacity: 1; transform: translateY(0);}
+  }
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: .3s;        /* 4/5 transicions */
+/* Pestanyes CSS */
+.tabs {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.tabs label {
+  display: inline-block;
+  padding: 0.7em 1.5em;
+  background: #eee;
+  border-radius: 0.5em 0.5em 0 0;
+  margin-right: 0.2em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.tabs label:hover {
+  background: #ffecb3;
+}
+.tab-content {
+  display: none;
+  padding: 1em;
+  background: #fffde7;
+  border-radius: 0 0 0.5em 0.5em;
+  border: 1px solid #ffe0b2;
+  margin-top: -0.2em;
+}
+#pagina-interaccio:has(#tab1:checked) .content-1,
+#pagina-interaccio:has(#tab2:checked) .content-2,
+#pagina-interaccio:has(#tab3:checked) .content-3 {
+  display: block;
 }
 
-button:hover {
-    background: #005fcc;
+/* Flip card */
+.flip-card-container {
+  margin: 2em 0;
+  text-align: center;
+}
+.flip-label {
+  display: inline-block;
+  margin-bottom: 1em;
+  cursor: pointer;
+  background: #ff9800;
+  color: #fff;
+  padding: 0.5em 1.2em;
+  border-radius: 0.5em;
+  transition: background 0.3s;
+}
+.flip-label:hover {
+  background: #e65100;
+}
+.flip-card {
+  width: 200px;
+  height: 120px;
+  perspective: 800px;
+  margin: 0 auto;
+}
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  background: #fffde7;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.flip-card-back {
+  background: #ffe0b2;
+  transform: rotateY(180deg);
+}
+#pagina-interaccio:has(#flip-toggle:checked) .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-/* ───────────── RESPONSIVE ───────────── */
-@media (max-width: 600px) {
-    nav {
-        justify-content: center;
-    }
-    .contenidor {
-        padding: 15px;
-    }
-    .check-group, .radio-group {
-        flex-direction: column;
-    }
+/* Responsive per mòbil */
+@media (max-width: 500px) {
+  main {
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  .flip-card {
+    width: 98vw;
+    height: 100px;
+  }
 }

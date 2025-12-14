@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactivitat CSS</title>
-    <link rel="stylesheet" href="estils.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactivitat amb CSS</title>
+  <link rel="stylesheet" href="estils.css">
 </head>
 <body id="pagina-interaccio">
+  <nav>
+    <a href="index.html">Formulari</a>
+    <a href="interaccio.html">Interactivitat</a>
+  </nav>
+  <main>
+    <h1>Interactivitat sense JS</h1>
 
-<header class="header-sticky">
-    <!-- Navbar desktop -->
-    <nav class="nav-desktop">
-        <a href="index.html">Formulari</a>
-        <a href="interaccio.html">Interactivitat</a>
-    </nav>
+    <!-- 1️⃣ Botó alternador (toggle menú) -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+    <label for="menu-toggle" class="menu-icon">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="menu">
+      <li><a href="#">Inici</a></li>
+      <li><a href="#">Serveis</a></li>
+      <li><a href="#">Contacte</a></li>
+    </ul>
 
+    <!-- 2️⃣ Pestanyes CSS -->
+    <div class="tabs">
+      <input type="radio" id="tab1" name="tab" checked hidden>
+      <label for="tab1">Pestanya 1</label>
+      <input type="radio" id="tab2" name="tab" hidden>
+      <label for="tab2">Pestanya 2</label>
+      <input type="radio" id="tab3" name="tab" hidden>
+      <label for="tab3">Pestanya 3</label>
 
+      <div class="tab-content content-1">
+        <p>Contingut de la pestanya 1.</p>
+      </div>
+      <div class="tab-content content-2">
+        <p>Contingut de la pestanya 2.</p>
+      </div>
+      <div class="tab-content content-3">
+        <p>Contingut de la pestanya 3.</p>
+      </div>
+    </div>
 
-    <!-- Menú mòbil -->
-    <nav class="nav-mobile">
-        <a href="index.html">Formulari</a>
-        <a href="interaccio.html">Interactivitat</a>
-    </nav>
-</header>
-
-<main class="contenidor">
-
-    <h1>Interacció amb CSS — Sense JavaScript</h1>
-
-    <!-- 2️⃣ TABS -->
-    <section class="tabs">
-        <h2>Pestanyes CSS</h2>
-
-        <!-- radio amagats -->
-        <input type="radio" name="tab" id="tab1" hidden checked>
-        <input type="radio" name="tab" id="tab2" hidden>
-        <input type="radio" name="tab" id="tab3" hidden>
-
-        <div class="tab-buttons">
-            <label for="tab1">Conceptes</label>
-            <label for="tab2">Avantatges</label>
-            <label for="tab3">Limitacions</label>
+    <!-- 3️⃣ Flip card (component extra) -->
+    <div class="flip-card-container">
+      <input type="checkbox" id="flip-toggle" hidden>
+      <label for="flip-toggle" class="flip-label">Gira la targeta</label>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Back</p>
+          </div>
         </div>
-
-        <div class="tab-content content-1">
-            <p>Les pestanyes amb CSS funcionen amb radio buttons + selectors avançats.</p>
-        </div>
-        <div class="tab-content content-2">
-            <p>No requereixen JavaScript i són ràpides de renderitzar.</p>
-        </div>
-        <div class="tab-content content-3">
-            <p>No serveixen per canvis en temps real o dades dinàmiques.</p>
-        </div>
-    </section>
-
-    <!-- 3️⃣ COMPONENT EXTRA — FLIP CARD -->
-    <section>
-        <h2>Flip Card amb checkbox</h2>
-
-        <label class="flip-container">
-            <input type="checkbox" id="card" hidden>
-            <div class="card">
-                <div class="front">
-                    👋 Clica per girar
-                </div>
-                <div class="back">
-                    🎉 Tot amb CSS!
-                </div>
-            </div>
-        </label>
-    </section>
-
-</main>
-
+      </div>
+    </div>
+  </main>
 </body>
 </html>
